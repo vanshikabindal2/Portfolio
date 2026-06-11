@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>My Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366f1',
+                            dark: '#818cf8'
+                        },
+                        secondary: {
+                            light: '#f43f5e',
+                            dark: '#fb7185'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background-color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-primary-light dark:text-primary-dark">Portfolio</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-primary-light dark:hover:text-primary-dark transition">Home</a>
+                    <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition">About</a>
+                    <a href="#skills" class="hover:text-primary-light dark:hover:text-primary-dark transition">Skills</a>
+                    <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition">Projects</a>
+                    <a href="#education" class="hover:text-primary-light dark:hover:text-primary-dark transition">Education</a>
+                    <a href="#contact" class="hover:text-primary-light dark:hover:text-primary-dark transition">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i data-feather="moon" class="hidden dark:block"></i>
+                        <i data-feather="sun" class="dark:hidden"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 pb-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">Home</a>
+                <a href="#about" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">About</a>
+                <a href="#skills" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">Skills</a>
+                <a href="#projects" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">Projects</a>
+                <a href="#education" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">Education</a>
+                <a href="#contact" class="py-2 hover:text-primary-light dark:hover:text-primary-dark transition">Contact</a>
+                <button id="theme-toggle-mobile" class="py-2 text-left hover:text-primary-light dark:hover:text-primary-dark transition flex items-center">
+                    <span class="mr-2">Toggle Theme</span>
+                    <i data-feather="moon" class="hidden dark:block"></i>
+                    <i data-feather="sun" class="dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary-light dark:text-primary-dark">Vanshika</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Full Stack Developer</h2>
+                    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300">"I build modern websites and am steadily improving my responsive design skills to ensure they look great on all screens."</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:bg-opacity-90 transition">Contact Me</a>
+                        <a href="#projects" class="px-6 py-3 border border-primary-light dark:border-primary-dark text-primary-light dark:text-primary-dark rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">View Work</a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <div class="relative w-64 h-70 md:w-80 md:h-70 rounded-full overflow-hidden border-4 border-primary-light dark:border-primary-dark">
+                        <img src="Images/vanshika.jpg" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">About <span class="text-primary-light dark:text-primary-dark">Me</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="http://static.photos/workspace/640x360/2" alt="About" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="mb-6 text-gray-600 dark:text-gray-300">I’m a passionate Frontend Developer with a strong interest in creating modern and user-friendly web applications.</p>
+                    <p class="mb-6 text-gray-600 dark:text-gray-300">I specialize in Reactjs,and responsive design principles, and I’m continuously learning to sharpen my skills.</p>
+                    <p class="mb-6 text-gray-600 dark:text-gray-300">I enjoy working on projects that challenge me to grow, whether it’s designing clean interfaces or building smooth user experiences. When I’m not coding, you’ll find me exploring new design tools, reading tech blogs, or learning about the latest trends in web development.
+
+</p>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="text-4xl font-bold text-center mb-12">
+    Skills & Technologies
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- Frontend -->
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+      <h3 class="text-2xl font-semibold mb-5 text-indigo-500">
+        Frontend
+      </h3>
+
+      <div class="flex flex-wrap gap-3">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React JS</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">GSAP</span>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+      <h3 class="text-2xl font-semibold mb-5 text-indigo-500">
+        Backend
+      </h3>
+
+      <div class="flex flex-wrap gap-3">
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">JWT</span>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+      <h3 class="text-2xl font-semibold mb-5 text-indigo-500">
+        Tools & Platforms
+      </h3>
+
+      <div class="flex flex-wrap gap-3">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">AI Tools</span>
+                <span class="skill-tag">Prompt engineer</span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+    <!-- <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">My <span class="text-primary-light dark:text-primary-dark">Skills</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-6">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>React</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Vue.js</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-6">Professional Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Communication</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Teamwork</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Problem Solving</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Creativity</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" data-width="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12" data-aos="fade-up">
+                <h3 class="text-xl font-semibold mb-6 text-center">Tools & Technologies</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition w-24">
+                        <i data-feather="code" class="w-10 h-10 text-primary-light dark:text-primary-dark"></i>
+                        <span class="mt-2 text-sm">VS Code</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition w-24">
+                        <i data-feather="git-branch" class="w-10 h-10 text-primary-light dark:text-primary-dark"></i>
+                        <span class="mt-2 text-sm">Git</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition w-24">
+                        <i data-feather="box" class="w-10 h-10 text-primary-light dark:text-primary-dark"></i>
+                        <span class="mt-2 text-sm">Docker</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition w-24">
+                        <i data-feather="terminal" class="w-10 h-10 text-primary-light dark:text-primary-dark"></i>
+                        <span class="mt-2 text-sm">CLI</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition w-24">
+                        <i data-feather="figma" class="w-10 h-10 text-primary-light dark:text-primary-dark"></i>
+                        <span class="mt-2 text-sm">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">
+            My <span class="text-primary-light dark:text-primary-dark">Projects</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Project 1 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/1" alt="Project 1" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Sundown clone</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Built a creative and animated website with HTML, CSS, and JavaScript focusing on modern 
+UI design. Applied component-based structure and clean UI design.
+ Implemented smooth scrolling effects, interactive layouts, and dynamic frontend features 
+and  While maintaining clean and optimized code.
+
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">HTML</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">CSS</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">JavaScript</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">GSAP</span>
+                    </div>
+                    <a href="  https://sundown-clone-seven.vercel.app/" class="text-primary-light dark:text-primary-dark hover:underline">Live Demo</a>
+                    <a href="#" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/2" alt="Project 2" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Agency AI Clone</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        This project is a modern and fully responsive web application developed using React.js, Tailwind CSS, HTML, and JavaScript. The main goal of this project was to create an interactive, visually appealing, and user-friendly website while improving my frontend development skills and understanding of modern web technologies
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">React.js</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Tailwind CSS</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://agency-ai-clone-alpha.vercel.app/" class="text-primary-light dark:text-primary-dark hover:underline">Live Demo</a>
+                        <a href="https://github.com/vanshikabindal2/Agency-ai-clone" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/3" alt="Project 3" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">AUTHENTICATION SYSTEM WITH DASHBOARD </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4"> Developed secure login and signup system with validation and error handling
+
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">HTML</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">CSS</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Nodejs</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Expressjs</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">JWT</span>
+
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/vanshikabindal2/-Authentication-system-with-dashboard" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div data-aos="fade-up" data-aos-delay="400" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/4" alt="Project 4" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Task-management Web Application</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        A MERN Stack web application with frontend and backend functionality, including responsive UI and basic CRUD operations.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">React</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Node js </span>
+                          <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Express js </span>
+                         <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">MongoDB </span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/vanshikabindal2/Task-Management-Web-Application" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <!-- <div data-aos="fade-up" data-aos-delay="500" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/5" alt="Project 5" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Personal portfolio website showcasing projects and skills.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">HTML</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Tailwind</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-primary-light dark:text-primary-dark hover:underline">Live Demo</a>
+                        <a href="#" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Project 6 -->
+            <!-- <div data-aos="fade-up" data-aos-delay="600" class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                <img src="http://static.photos/technology/640x360/6" alt="Project 6" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Task Manager App</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Task management application with CRUD functionality.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">React</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">Node.js</span>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-600 rounded text-sm">MongoDB</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-primary-light dark:text-primary-dark hover:underline">Live Demo</a>
+                        <a href="#" class="text-primary-light dark:text-primary-dark hover:underline">Source Code</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">My <span class="text-primary-light dark:text-primary-dark">Education</span></h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Education Item 1 -->
+                    <div data-aos="fade-up" class="relative timeline-item pl-8">
+                        <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-light dark:bg-primary-dark"></div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold">Software Development Course</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Global Institute Ai</p>
+                                </div>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">2025-2026</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Education Item 2 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="relative timeline-item pl-8">
+                        <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-light dark:bg-primary-dark"></div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold">Bachelor's in Computer application</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">Maa Shamkumbhari University</p>
+                                </div>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">2023- 2026</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    <!-------Education Item3-->
+                                        <div data-aos="fade-up" data-aos-delay="100" class="relative timeline-item pl-8">
+                        <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-light dark:bg-primary-dark"></div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold">Higher School</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">ST.RC CONVENT SCHOOL</p>
+                                </div>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">2022- 2023</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <!-- Education Item 4 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="relative timeline-item pl-8">
+                        <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-light dark:bg-primary-dark"></div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold">Secondary School</h3>
+                                    <p class="text-gray-600 dark:text-gray-300">ST.RC Convent School </p>
+                                </div>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-sm">2021-2022</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 data-aos="fade-up" class="text-3xl font-bold text-center mb-12">Get In <span class="text-primary-light dark:text-primary-dark">Touch</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-4">Contact Information</h3>
+                    <p class="mb-6 text-gray-600 dark:text-gray-300">Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary-light dark:text-primary-dark">
+                                <i data-feather="mail"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">vanshikabindal2@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary-light dark:text-primary-dark">
+                                <i data-feather="phone"></i>
+                            </div>
+
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary-light dark:text-primary-dark">
+                                <i data-feather="map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Delhi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://vanshikabindal2" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center shadow-md hover:shadow-lg transition">
+                                <i data-feather="github" class="text-gray-700 dark:text-gray-300"></i>
+                            </a>
+                            
+                            <a href="http://www.linkedin.com/in/vanshika-bindal-9b9497320" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center shadow-md hover:shadow-lg transition">
+                                <i data-feather="linkedin" class="text-gray-700 dark:text-gray-300"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center shadow-md hover:shadow-lg transition">
+                                <i data-feather="instagram" class="text-gray-700 dark:text-gray-300"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <form class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-white dark:bg-gray-800">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block mb-2 font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-white dark:bg-gray-800">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-white dark:bg-gray-800">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-white dark:bg-gray-800"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:bg-opacity-90 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="index.js"></script>
+</body>
+</html>
